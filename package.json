@@ -1,0 +1,78 @@
+{
+	"name": "github-content",
+	"displayName": "Github Content Encoder/Decoder",
+	"description": "Allows for easy encoding/decoding Github's Content format",
+	"icon": "logo-128x128.png",
+	"version": "1.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/TheWolfNL/github-content"
+	},
+	"publisher": "TheWolfNL",
+	"author": "Tjeerd Ritsma <tpritsma@gmail.com>",
+	"bugs": {
+		"url": "https://github.com/TheWolfNL/github-content/issues",
+		"email": "tpritsma@gmail.com"
+	},
+	"license": "MIT",
+	"categories": [
+		"Programming Languages",
+		"Formatters",
+		"Other"
+	],
+	"engines": {
+		"vscode": "^1.46.0"
+	},
+	"activationEvents": [
+        "onCommand:github-content.GithubContentEncode",
+        "onCommand:github-content.GithubContentDecode"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "github-content.GithubContentEncode",
+				"title": "Github Content Encode"
+			},
+			{
+				"command": "github-content.GithubContentDecode",
+				"title": "Github Content Decode"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "github-content.GithubContentEncode",
+				"key": "ctrl+g ctrl+e",
+				"mac": "cmd+g cmd+e",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "github-content.GithubContentDecode",
+				"key": "ctrl+g ctrl+d",
+				"mac": "cmd+g cmd+d",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint src --ext ts",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile && yarn run lint",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.46.0",
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^7.0.2",
+		"@types/node": "^13.11.0",
+		"eslint": "^6.8.0",
+		"@typescript-eslint/parser": "^2.30.0",
+		"@typescript-eslint/eslint-plugin": "^2.30.0",
+		"glob": "^7.1.6",
+		"mocha": "^7.1.2",
+		"typescript": "^3.8.3",
+		"vscode-test": "^1.3.0"
+	}
+}
